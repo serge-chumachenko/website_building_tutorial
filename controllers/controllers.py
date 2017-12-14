@@ -5,14 +5,14 @@ from odoo import http
 class Academy(http.Controller):
     @http.route('/academy/academy/', auth='public', website=True)
     def index(self, **kw):
-        Teachers = http.request.env['academy.teachers']
-        return http.request.render('academy.index', {
+        Teachers = http.request.env['website_building_tutorial.teachers']
+        return http.request.render('website_building_tutorial.index', {
             'teachers': Teachers.search([]),
         })
 
-    @http.route('/academy/<model("academy.teachers"):teacher>/', auth='public', website=True)
+    @http.route('/academy/<model("website_building_tutorial.teachers"):teacher>/', auth='public', website=True)
     def teacher(self, teacher):
-        return http.request.render('academy_biography', {
+        return http.request.render('website_building_tutorial.biography', {
             'person': teacher
         })
     # @http.route('/academy/<int:id>/', auth='public', website=True)
