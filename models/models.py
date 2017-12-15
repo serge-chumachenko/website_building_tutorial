@@ -6,17 +6,13 @@ from odoo import models, fields, api
 class Teachers(models.Model):
     _name = 'website_building_tutorial.teachers'
 
-    name = fields.Char()
-    biography = fields.Html()
+    name = fields.Char("Teacher's Name")
+    biography = fields.Html("Teacher's biography")
+    course_ids = fields.One2many('website_building_tutorial.courses', 'teacher_id', "Course")
 
-# class academy(models.Model):
-#     _name = 'academy.academy'
+class Courses(models.Model):
+    _name = 'website_building_tutorial.courses'
+    _inherit = 'mail.thread'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+    name = fields.Char("Course's Name")
+    teacher_id = fields.Many2one('website_building_tutorial.teachers', "Teacher")

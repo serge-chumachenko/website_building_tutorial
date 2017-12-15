@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_website_building_tutorial_teachers,website_building_tutorial_teachers,model_website_building_tutorial_teachers,,1,0,0,0
+access_website_building_tutorial_courses,website_building_tutorial_courses,model_website_building_tutorial_courses,,1,0,0,0
